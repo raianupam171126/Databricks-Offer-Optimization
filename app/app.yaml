@@ -1,0 +1,17 @@
+# Databricks App manifest — Coupon Uplift Demo
+#
+# Deploy from the Databricks UI:
+#   Compute → Apps → Create app → "Custom"
+#   point at this folder, attach a SQL warehouse, deploy.
+#
+# The variables below are populated by the App runtime; CATALOG and SCHEMA
+# can be overridden in the App's environment section if you use a different
+# Unity Catalog location than `main.coupon_uplift`.
+
+command: ["streamlit", "run", "app.py", "--server.port", "8000", "--server.address", "0.0.0.0"]
+
+env:
+  - name: CATALOG
+    value: main
+  - name: SCHEMA
+    value: coupon_uplift
